@@ -1,0 +1,12 @@
+@import "compass/css3";
+@import "vars";
+@import "functions";
+@import "mixins";
+@import "normalize";
+@import "grid";
+
+
+
+#main{
+	@extend .frame;
+}

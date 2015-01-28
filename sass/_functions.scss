@@ -1,0 +1,8 @@
+@function column( $columns){
+	
+	$column-width: percentage( $columns / $total-columns ); 
+	
+	@return $column-width;
+
+  
+}

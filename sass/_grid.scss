@@ -1,0 +1,122 @@
+.clearfix {
+  zoom:1;
+  &:before, &:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      overflow: hidden;
+  }
+  &:after {
+      clear: both;
+  }
+}
+
+
+.frame{
+	
+	@include respond-to(xs) { padding: 0 $frame-xs; }
+	@include respond-to(sm) { padding: 0 $frame-sm; }
+	@include respond-to(md) { padding: 0 $frame-md; }
+	@include respond-to(lg) { padding: 0 $frame-lg; }
+
+}
+
+.container{
+	max-width: $max-width;
+	width: 100%;
+	
+	margin: 0 auto;
+}
+
+.left{
+  float: left;
+}
+
+.row{
+  		
+  @extend .clearfix;
+  margin-left: -$gutter-width/2;
+  margin-right: -$gutter-width/2;
+  
+  box-shadow: inset 0 0 4px blue;
+}
+
+.column{
+  @extend .left;
+  padding-left: $gutter-width/2;
+  padding-right: $gutter-width/2;
+  
+  padding-bottom: $gutter-width;
+  
+  box-shadow: inset 0 0 4px orange;
+}
+
+@for $i from 1 through $total-columns {
+	
+ .col_#{$i} {
+    @extend .column;
+    width: column($i);
+  }	
+		
+  .col_xs_#{$i} {
+    @extend .column;
+    width: column($i);
+      
+  }
+  
+  .col_sm_#{$i} {
+    @extend .column;
+    width: column($i);
+    
+    @include respond-to(xs) {
+	   width: 100%;
+	   float: none;
+	   clear: both;
+	}
+  }
+  
+  .col_md_#{$i} {
+    @extend .column;
+    width: column($i);
+    
+    @include respond-to(xs) {
+	   width: 100%;
+	   float: none;
+	   clear: both;
+	}
+
+	@include respond-to(sm) {
+	   width: 100%;
+	   float: none;
+	   clear: both;
+	}
+
+  }
+  
+  .col_lg_#{$i} {
+    @extend .column;
+    width: column($i);
+    
+    @include respond-to(xs) {
+	   width: 100%;
+	   float: none;
+	   clear: both;
+	}
+
+	@include respond-to(sm) {
+	   width: 100%;
+	   float: none;
+	   clear: both;
+	}
+	@include respond-to(md) {
+	   width: 100%;
+	   float: none;
+	   clear: both;
+	}
+  }
+  
+  
+  
+  
+  
+}
